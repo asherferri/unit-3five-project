@@ -15,3 +15,10 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+const {a, b, c, ...rest} = {a: 1, b: 2, c: 3, d: 4, e: 5};
+console.log(rest);
+
+let song = ('Trascendent Absorption')
+let artist = ('Inanimate Existence')
+
+console.log(`Listening to ${song} by ${artist}`)
