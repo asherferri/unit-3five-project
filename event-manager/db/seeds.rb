@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# this potatoes repeats the creation of an Event instance in the database's table.
+
+json = ActiveSupport::JSON.decode(File.read('db/seeds/events.json'))
+json.each do |record|
+    Event.create!(record)
+end
