@@ -44,3 +44,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# responders gem added. It provides a respond_with method that will keep the controller
+# code nice and DRY.
+gem 'responders'
