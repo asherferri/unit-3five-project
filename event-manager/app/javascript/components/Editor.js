@@ -36,12 +36,14 @@ class Editor extends React.Component {
     return (
       <div>
         <Header />
-        <EventList events={events} />
-        {/* this next line makes it crap out */}
-        {/* not crapping out anymore */}
-        <PropsRoute path="/events/:id" component={Event} event={event} />
+        <div className="grid">
+          <EventList events={events} activeId={Number(eventId)}/>
+          {/* this next line makes it crap out */}
+          {/* not crapping out anymore */}
+          <PropsRoute path="/events/:id" component={Event} event={event} />
+        </div>
       </div>
-    );
+    )
   }
 }
 

@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import React from 'react'
 import PropTypes from 'prop-types'
 
 class EventList extends React.Component {
   renderEvents() {
-    const { events } = this.props;
+    const { activeId, events } = this.props
     events.sort(
       (a, b) => new Date(b.event_date) - new Date(a.event_date),
     )
@@ -12,7 +12,7 @@ class EventList extends React.Component {
     return events.map(event => (
       <li key={event.id}>
           {/* we make our events clickable */}
-          <Link to={`/events/${event.id}`}>
+          <Link to={`/events/${event.id}`} className={activeId === event.id ? 'active' : ''}>
         {event.event_date}
         {' - '}
         {event.event_type}
@@ -23,7 +23,7 @@ class EventList extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className="eventList">
         <h2>Events</h2>
         <ul>{this.renderEvents()}</ul>
       </section>
@@ -32,10 +32,12 @@ class EventList extends React.Component {
 }
 
 EventList.propTypes = {
+  activeId: PropTypes.number,
   events: PropTypes.arrayOf(PropTypes.object),
 }
 
 EventList.defaultProps = {
+  activeId: undefined,
   events: [],
 }
 
