@@ -7,8 +7,8 @@ const App = () => (
       {/*we donte render editor directly anymore  */}
       {/* we now use a component */}
     {/* <Editor /> */}
-    <Route path="/events/:id?" component={Editor} />
+    <Route path="/events/:id?" component={ Editor } />
   </div>
-);
+)
 
 export default App
