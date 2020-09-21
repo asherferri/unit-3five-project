@@ -1,10 +1,6 @@
 {
   "name": "event_manager",
   "private": true,
-  "scripts": {
-    "lint": "eslint app/javascript",
-    "heroku-postbuild": "cd client && yarn && yarn build && cp -a ./build/ ../public/"
-  },
   "dependencies": {
     "@babel/preset-react": "^7.10.4",
     "@rails/actioncable": "^6.0.0",
@@ -13,17 +9,12 @@
     "@rails/webpacker": "4.3.0",
     "axios": "^0.20.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "pikaday": "^1.8.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "turbolinks": "^5.2.0",
-    "eslint": "^7.9.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.0",
-    "webpack-dev-server": "^3.11.0"
+    "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
@@ -34,7 +25,9 @@
     "eslint-plugin-react": "^7.11.0",
     "webpack-dev-server": "^3.11.0"
   },
-  "comments": {
-    "event-tracker": "Just a habit i have to say AshR WaS here",
-    "heroku if root in subdirectory": "git subtree push --prefix directoryOfApp heroku master"
+  "comments": "Just a habit i have to say AshR WaS here",
+  "scripts": {
+    "lint": "eslint app/javascript",
+    "heroku-postbuild": "cd client && yarn && yarn build && cp -a ./build/ ../public/"
+  }
 }
