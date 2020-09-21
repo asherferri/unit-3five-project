@@ -1,35 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { formatDate, isEmptyObject, validateEvent } from '../helpers/helpers';
-import Pikaday from 'pikaday';
-import 'pikaday/css/pikaday.css';
+import { formatDate, isEmptyObject, validateEvent } from '../helpers/helpers'
+import Pikaday from 'pikaday'
+import 'pikaday/css/pikaday.css'
 
 
 
 class EventForm extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       event: props.event,
       errors: {},
-    };
+    }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.dateInput = React.createRef();
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.dateInput = React.createRef()
   }
 
   componentDidMount() {
     new Pikaday({
       field: this.dateInput.current,
       onSelect: (date) => {
-        const formattedDate = formatDate(date);
-        this.dateInput.current.value = formattedDate;
-        this.updateEvent('event_date', formattedDate);
+        const formattedDate = formatDate(date)
+        this.dateInput.current.value = formattedDate
+        this.updateEvent('event_date', formattedDate)
       },
-    });
+    })
   }
 
   updateEvent(key, value) {
@@ -38,34 +38,34 @@ class EventForm extends React.Component {
         ...prevState.event,
         [key]: value,
       },
-    }));
+    }))
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    const { event } = this.state;
-    const errors = validateEvent(event);
+    e.preventDefault()
+    const { event } = this.state
+    const errors = validateEvent(event)
   
     if (!isEmptyObject(errors)) {
-      this.setState({ errors });
+      this.setState({ errors })
     } else {
-      const { onSubmit } = this.props;
-      onSubmit(event);
+      const { onSubmit } = this.props
+      onSubmit(event)
     }
   }
 
   handleInputChange(event) {
-    const { target } = event;
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.updateEvent(name, value);
+    const { target } = event
+    const { name } = target
+    const value = target.type === 'checkbox' ? target.checked : target.value
+    this.updateEvent(name, value)
   }
 
   renderErrors() {
-    const { errors } = this.state;
+    const { errors } = this.state
   
     if (isEmptyObject(errors)) {
-      return null;
+      return null
     }
 
     return (
@@ -77,7 +77,7 @@ class EventForm extends React.Component {
           ))}
         </ul>
       </div>
-    );
+    )
   }
 
   render() {
@@ -149,14 +149,14 @@ class EventForm extends React.Component {
           </div>
         </form>
       </div>
-    );
+    )
   }
 }
 
 EventForm.propTypes = {
     event: PropTypes.shape(),
     onSubmit: PropTypes.func.isRequired,
-};
+}
 
 EventForm.defaultProps = {
   event: {
@@ -167,6 +167,6 @@ EventForm.defaultProps = {
     host: '',
     published: false,
   },
-};
+}
 
-export default EventForm;
+export default EventForm

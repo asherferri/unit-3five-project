@@ -15,4 +15,4 @@ PropsRoute.propTypes = {
   component: PropTypes.func.isRequired,
 }
 
-export default PropsRoute;
+export default PropsRoute

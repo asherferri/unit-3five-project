@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const Event = ({ event, onDelete }) => (
   <div className="eventContainer">
@@ -45,15 +45,16 @@ const Event = ({ event, onDelete }) => (
       </li>
     </ul>
   </div>
-);
+)
 
 Event.propTypes = {
   event: PropTypes.shape(),
-  onDelete: PropTypes.func.isRequired,
-};
+  //Front end delete bug is here  
+  // onDelete: PropTypes.func.isRequired,
+}
 
 Event.defaultProps = {
   event: undefined,
-};
+}
 
 export default Event

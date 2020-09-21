@@ -10,13 +10,13 @@ require("channels")
 
 // added to start with REACT
 
-import React from 'react';
-import { render } from 'react-dom';
+import React from 'react'
+import { render } from 'react-dom'
 
 // adding router
 import { BrowserRouter } from 'react-router-dom'
 
-import App from '../components/App';
+import App from '../components/App'
 
 
 // document.addEventListener('DOMContentLoaded', () => {
@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-const {a, b, c, ...rest} = {a: 1, b: 2, c: 3, d: 4, e: 5};
-console.log(rest);
+const {a, b, c, ...rest} = {a: 1, b: 2, c: 3, d: 4, e: 5}
+console.log(rest)
 
 let song = ('Trascendent Absorption')
 let artist = ('Inanimate Existence')

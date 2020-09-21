@@ -16,10 +16,10 @@ class Editor extends React.Component {
 
     this.state = {
       events: null,
-    };
+    }
 
-    this.addEvent = this.addEvent.bind(this);
-    this.deleteEvent = this.deleteEvent.bind(this);
+    this.addEvent = this.addEvent.bind(this)
+    this.deleteEvent = this.deleteEvent.bind(this)
   }
 
   componentDidMount() {
@@ -35,37 +35,37 @@ class Editor extends React.Component {
     axios
       .post('/api/events.json', newEvent)
       .then((response) => {
-        alert('Event Added!');
-        const savedEvent = response.data;
+        alert('Event Added!')
+        const savedEvent = response.data
         this.setState(prevState => ({
           events: [...prevState.events, savedEvent],
-        }));
-        const { history } = this.props;
-        history.push(`/events/${savedEvent.id}`);
+        }))
+        const { history } = this.props
+        history.push(`/events/${savedEvent.id}`)
       })
       .catch((error) => {
-        console.log(error);
-      });
+        console.log(error)
+      })
   }
 
   deleteEvent(eventId) {
-    const sure = window.confirm('Are you sure?');
+    const sure = window.confirm('Are you sure?')
     if (sure) {
       axios
         .delete(`/api/events/${eventId}.json`)
         .then((response) => {
           if (response.status === 204) {
-            alert('Event deleted');
-            const { history } = this.props;
-            history.push('/events');
+            alert('Event deleted')
+            const { history } = this.props
+            history.push('/events')
 
-            const { events } = this.state;
-            this.setState({ events: events.filter(event => event.id !== eventId) });
+            const { events } = this.state
+            this.setState({ events: events.filter(event => event.id !== eventId) })
           }
         })
         .catch((error) => {
-          console.log(error);
-        });
+          console.log(error)
+        })
     }
   }
 
@@ -96,17 +96,17 @@ class Editor extends React.Component {
           </Switch>
         </div>
       </div>
-    );
+    )
   }
 }
 
 Editor.propTypes = {
   match: PropTypes.shape(),
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
-};
-  
+}
+
 Editor.defaultProps = {
     match: undefined,
-};
+}
 
 export default Editor
